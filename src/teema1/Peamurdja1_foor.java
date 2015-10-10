@@ -27,7 +27,7 @@ public class Peamurdja1_foor extends Application {
         foor.vahetaPunast();
         foor.paus(0.5);
         while (i<10){
-            foor.paus(2);
+            foor.paus(1.5);
             foor.vahetaKollast();
             foor.paus(0.5);
             foor.vahetaPunast();
