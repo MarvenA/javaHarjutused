@@ -1,5 +1,7 @@
 package teema1;
 
+import java.util.Arrays;
+
 /**
  * Kasutades tsükleid, lahendada järgmised ülesanded:
  * 1. Trükkida ekraanile numbrid 10 kuni 1
@@ -18,6 +20,19 @@ package teema1;
  */
 public class Harjutus1_tsyklid {
     public static void main(String[] args) {
+        int [][] tabel = new int[10][10];
 
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9 ; j++) {
+                    tabel[i][j] = i+j;
+                if( i+j>9 ){
+                    tabel[i][j] = 0;
+                }
+            }
+        }
+
+        for (int i = 0; i < 9; i++) {
+            System.out.println(Arrays.toString(tabel[i]));
+        }
     }
 }

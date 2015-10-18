@@ -22,49 +22,59 @@ import java.util.Scanner;
 
 public class Peamurdja3_laevad {
     public static void main(String[] args) {
-        int[][] openWater = new int[9][9];
+        int[][] openWater = new int[5][5];
 
-        for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
                 openWater[i][j] = ship();
             }
         }
 
-        for (int i = 0; i < 9; i++) {
+        for (int i = 0; i < 5; i++) {
             System.out.println(Arrays.toString(openWater[i]));
         }
 
-        System.out.println(Arrays.toString(openWater));
-        Scanner user = new Scanner(System.in);
+        Scanner userInput1 = new Scanner(System.in);
+        Scanner userInput2 = new Scanner(System.in);
 
-        /*while (gameover(openWater)) {
-            System.out.println("Sisesta üks number: ");
-            int userInput = user.nextInt();
-            int hit = openWater[userInput];
-            if (hit == 0) {
-                System.out.print("Möödas...");
-            } else if (hit == 1) {
-                System.out.println("Pihtas!");
-                openWater[userInput] = 8;
-                System.out.println(Arrays.toString(openWater));
-            } else if (hit == 8) {
-                System.out.println("Oled siia juba proovinud!");
+        while(gameover(openWater)){
+            System.out.println("Vali rea number 1 ja " + openWater.length + " vahel.");
+            int rida = (userInput1.nextInt()-1); //-1 sellepärast, et loendamine algab nullist mitte ühest.
+            System.out.println("Vali veeru number 1 ja " + openWater.length + " vahel.");
+            int veerg = (userInput2.nextInt()-1); //-1 sellepärast, et loendamine algab nullist mitte ühest.
+
+            if (openWater[rida][veerg] == 1){
+                System.out.println("Pihtas-põhjas!");
+            } else {
+                System.out.println("Möödas. Proovi uuesti");
+            }
+            if (openWater[rida][veerg] == 8) {  //Kontrollib kas on juba seda kohta tulistanud
+                System.out.println("Juba tulistasid siia! Proovi uuesti");
+            }
+            if (openWater[rida][veerg] == 1){
+                openWater[rida][veerg] = 8;     //Pihta saanud laev märgitakse teistsuguseks
             }
         }
-        System.out.println("GAME OVER!! Kõik laevad põhjas!");
-    }*/
+        System.out.println("Kõik laevad põhjas!");
+        for (int i = 0; i < 5; i++) {
+            System.out.println(Arrays.toString(openWater[i]));
+        }
+    }
 
-    /*public static boolean gameover(int[] openWater) {
-        for (int i = 0; i < openWater.length; i++) {
-            if (openWater[i] == 1) {
-                return true;
+    public static int ship() {
+        return (int) (Math.random() * 2); //Genereerib 0 või 1
+    }
+
+    public static boolean gameover(int [][] openWater){ //Kontrollib, kas laual on veel ühtesid.
+        for (int i = 0; i < 5 ; i++) {
+            for (int j = 0; j < 5; j++) {
+                if (openWater[i][j] == 1){
+                    return true;
+                }
             }
         }
         return false;
-    }*/
-
-    private static int ship(){
-        return (int) (Math.random()*2);
     }
 }
+
 
