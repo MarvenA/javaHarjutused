@@ -1,5 +1,7 @@
 package teema1;
 
+import java.util.Scanner;
+
 /**
  * Juhuslikkus
  *
@@ -21,6 +23,23 @@ package teema1;
  */
 public class Harjutus3_Juhuslikkus {
     public static void main(String[] args) {
-
+        int diceSumComp=0;
+        int diceSumUser = 0;
+        for (int i = 0; i < 2; i++) {
+            int dice = (int) (1+ Math.random() * 6);
+            diceSumComp = diceSumComp + dice;
+        }
+        for (int i = 0; i < 2; i++) {
+            int dice = (int) (1+ Math.random() * 6);
+            diceSumUser = diceSumUser + dice;
+        }
+        System.out.println("Arvuti silmade arv on " + diceSumComp + ", mängijal on " + diceSumUser + ".");
+        if (diceSumComp>diceSumUser) {
+            System.out.println("Arvuti võitis!!");
+        }else if (diceSumComp==diceSumUser) {
+            System.out.println("Viik!");
+        }else {
+            System.out.println("Mängija võitis!!");
+        }
     }
 }

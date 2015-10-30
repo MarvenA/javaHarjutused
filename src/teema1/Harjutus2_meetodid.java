@@ -13,19 +13,26 @@ public class Harjutus2_meetodid {
 
     public static void main(String[] args) {
 
-        Scanner user = new Scanner(System.in);
-        System.out.print("Sisesta täisarv, mida soovid kuupi tõsta: ");
-        int arv = user.nextInt();
-        System.out.println("Küsitud arvu kuup on: " + tostaKuupi(arv));
-
-
+        int min = 10;
+        int max = 20;
+        int x   = kasutajaSisestus(min, max);
+        System.out.println("Pakutud vahemik oli " + min + " kuni " + max + ".");
+        System.out.println(x + " mahub vahemikku :)");
     }
 
-    public static int tostaKuupi(int arv) {
-        return (int) Math.pow(arv, 3);
+    public static void tostaKuupi(int x) {
+        System.out.println("Küsitud arvu kuup on " + Math.pow(x, 3));
     }
 
-    public static int kasutajaSisestus(int number, int min, int max) {return 0;    }
-
+    public static int kasutajaSisestus(int a, int b) {
+        Scanner user1 = new Scanner(System.in);
+        System.out.println("Sisesta üks number: ");
+        int number = user1.nextInt();
+        while (number < a || number > b) {
+            System.out.println("Sisesta uus number, eelmine ei mahtunud vahemikku: ");
+            number = user1.nextInt();
+        }
+        return number;
+    }
 }
 
